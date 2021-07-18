@@ -1,0 +1,23 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: nde.forms.main.rsformcaption
+msgid "Noso Desktop Explorer"
+msgstr ""
+
+#: tfrmmain.actfileexit.caption
+msgid "E&xit"
+msgstr ""
+
+#: tfrmmain.actfileexit.hint
+msgid "Exit"
+msgstr ""
+
+#: tfrmmain.caption
+msgid "frmMain"
+msgstr ""
+
+#: tfrmmain.mnufile.caption
+msgid "&File"
+msgstr ""
+

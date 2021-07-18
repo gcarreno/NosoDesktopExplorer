@@ -1,0 +1,39 @@
+object frmMain: TfrmMain
+  Left = 385
+  Height = 506
+  Top = 250
+  Width = 970
+  Caption = 'frmMain'
+  Menu = mmMain
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  SessionProperties = 'Top;Left;Width;Height;WindowState'
+  object mmMain: TMainMenu
+    Left = 888
+    Top = 288
+    object mnuFile: TMenuItem
+      Caption = '&File'
+      object mnuFileExit: TMenuItem
+        Action = actFileExit
+      end
+    end
+  end
+  object alMain: TActionList
+    Left = 888
+    Top = 352
+    object actFileExit: TFileExit
+      Category = 'File'
+      Caption = 'E&xit'
+      Hint = 'Exit'
+    end
+  end
+  object jsonpsMain: TJSONPropStorage
+    StoredValues = <>
+    Formatted = False
+    Active = False
+    Left = 888
+    Top = 424
+  end
+end
