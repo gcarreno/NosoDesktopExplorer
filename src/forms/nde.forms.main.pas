@@ -5,8 +5,19 @@ unit NDE.Forms.Main;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ActnList,
-  JSONPropStorage, StdActns;
+  Classes
+, SysUtils
+, Forms
+, Controls
+, Graphics
+, Dialogs
+, Menus
+, ActnList
+, JSONPropStorage
+, StdActns
+, NDE.Data.Connections
+, NDE.Data.Connection
+;
 
 type
 
@@ -19,11 +30,14 @@ type
     mnuFile: TMenuItem;
     mnuFileExit: TMenuItem;
     mmMain: TMainMenu;
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormDestroy(Sender: TObject);
   private
+    FConnections: TConnections;
+    FConnectionsOpen: TConnections;
+
     procedure Init;
     procedure InitShortCuts;
     procedure ActivatePropStorage;
@@ -51,9 +65,25 @@ uses
 
 { TfrmMain }
 
-procedure TfrmMain.Init;
+function GetApplicationName: String;
 begin
+  Result:= 'nosodesktopexplorer';
+end;
+
+procedure TfrmMain.Init;
+var
+  connection: TConnection = nil;
+begin
+  OnGetApplicationName:= @GetApplicationName;
   Caption := Format('%s %s', [rsFormCaption,cVersion]);
+  FConnections:= TConnections.Create;
+  FConnectionsOpen:= TConnections.Create;
+  {### REMOVE ###}
+  connection:= TConnection.Create;
+  connection.ConnectionType:= ctFolder;
+  connection.Folder:= '/home/gcarreno/Applications/Noso/Wallet/NOSODATA';
+  FConnections.Add(connection);
+  {### REMOVE ###}
 end;
 
 procedure TfrmMain.InitShortCuts;
@@ -84,16 +114,6 @@ begin
   jsonpsMain.Active:= False;
 end;
 
-procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-begin
-  CanClose:= True;
-end;
-
-procedure TfrmMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
-  CloseAction:= caFree;
-end;
-
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   Init;
@@ -101,12 +121,22 @@ begin
   ActivatePropStorage;
 end;
 
+procedure TfrmMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  CloseAction:= caFree;
+end;
+
+procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  CanClose:= True;
+end;
+
 procedure TfrmMain.FormDestroy(Sender: TObject);
 begin
+  FConnectionsOpen.Free;
+  FConnections.Free;
   DeActivatePropStorage;
 end;
 
-initialization
-  //Application.on;
 end.
 

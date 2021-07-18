@@ -10,6 +10,7 @@ object frmMain: TfrmMain
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   SessionProperties = 'Top;Left;Width;Height;WindowState'
+  LCLVersion = '2.3.0.0'
   object mmMain: TMainMenu
     Left = 888
     Top = 288
