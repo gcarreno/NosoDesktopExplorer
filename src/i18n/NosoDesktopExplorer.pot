@@ -32,8 +32,30 @@ msgstr ""
 msgid "&Ok"
 msgstr ""
 
+#: tfrmconnectionmanager.gbfolder.caption
+msgctxt "tfrmconnectionmanager.gbfolder.caption"
+msgid "Folder"
+msgstr ""
+
+#: tfrmconnectionmanager.gbjsonrpc.caption
+msgid "JSON-RPC"
+msgstr ""
+
+#: tfrmconnectionmanager.gbwebapi.caption
+msgid "Web API"
+msgstr ""
+
+#: tfrmconnectionmanager.lblconnectionfolder.caption
+msgctxt "tfrmconnectionmanager.lblconnectionfolder.caption"
+msgid "Folder"
+msgstr ""
+
 #: tfrmconnectionmanager.lblconnectionname.caption
 msgid "Name"
+msgstr ""
+
+#: tfrmconnectionmanager.rgconnectiontype.caption
+msgid "Connection Type"
 msgstr ""
 
 #: tfrmmain.actconnectionsconnect.caption

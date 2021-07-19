@@ -147,25 +147,116 @@ object frmConnectionManager: TfrmConnectionManager
       ClientWidth = 405
       ClientHeight = 311
       Constraints.MinWidth = 400
-      object lblConnectionName: TLabel
-        Left = 4
-        Height = 17
-        Top = 4
-        Width = 401
-        Align = alTop
-        BorderSpacing.Left = 4
-        BorderSpacing.Top = 4
-        Caption = 'Name'
-      end
-      object edtConnectionName: TEdit
-        Left = 4
-        Height = 33
-        Top = 25
-        Width = 401
-        Align = alTop
-        BorderSpacing.Left = 4
-        BorderSpacing.Top = 4
+      object panCOnnectionDetails: TPanel
+        Left = 0
+        Height = 311
+        Top = 0
+        Width = 405
+        Align = alClient
+        BevelOuter = bvNone
+        ClientHeight = 311
+        ClientWidth = 405
         TabOrder = 0
+        object lblConnectionName: TLabel
+          Left = 4
+          Height = 17
+          Top = 4
+          Width = 401
+          Align = alTop
+          BorderSpacing.Left = 4
+          BorderSpacing.Top = 4
+          Caption = 'Name'
+          FocusControl = edtConnectionName
+        end
+        object edtConnectionName: TEdit
+          Left = 4
+          Height = 33
+          Top = 25
+          Width = 380
+          Align = alTop
+          BorderSpacing.Left = 4
+          BorderSpacing.Top = 4
+          Constraints.MaxWidth = 380
+          TabOrder = 0
+        end
+        object rgConnectionType: TRadioGroup
+          Left = 0
+          Height = 41
+          Top = 58
+          Width = 405
+          Align = alTop
+          AutoFill = True
+          AutoSize = True
+          Caption = 'Connection Type'
+          ChildSizing.LeftRightSpacing = 6
+          ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+          ChildSizing.EnlargeVertical = crsHomogenousChildResize
+          ChildSizing.ShrinkHorizontal = crsScaleChilds
+          ChildSizing.ShrinkVertical = crsScaleChilds
+          ChildSizing.Layout = cclLeftToRightThenTopToBottom
+          ChildSizing.ControlsPerLine = 3
+          ClientHeight = 23
+          ClientWidth = 403
+          Columns = 3
+          Items.Strings = (
+            'Folder'
+            'JSON-RPC'
+            'Web API'
+          )
+          OnSelectionChanged = rgConnectionTypeSelectionChanged
+          TabOrder = 1
+        end
+        object gbWebAPI: TGroupBox
+          Left = 0
+          Height = 212
+          Top = 99
+          Width = 405
+          Align = alClient
+          Caption = 'Web API'
+          TabOrder = 4
+        end
+        object gbJSONRPC: TGroupBox
+          Left = 0
+          Height = 212
+          Top = 99
+          Width = 405
+          Align = alClient
+          Caption = 'JSON-RPC'
+          TabOrder = 3
+        end
+        object gbFolder: TGroupBox
+          Left = 0
+          Height = 212
+          Top = 99
+          Width = 405
+          Align = alClient
+          Caption = 'Folder'
+          ClientHeight = 194
+          ClientWidth = 403
+          TabOrder = 2
+          object lblConnectionFolder: TLabel
+            Left = 4
+            Height = 17
+            Top = 4
+            Width = 399
+            Align = alTop
+            BorderSpacing.Left = 4
+            BorderSpacing.Top = 4
+            Caption = 'Folder'
+            FocusControl = edtConnectionFolder
+          end
+          object edtConnectionFolder: TEdit
+            Left = 4
+            Height = 33
+            Top = 25
+            Width = 380
+            Align = alTop
+            BorderSpacing.Left = 4
+            BorderSpacing.Top = 4
+            Constraints.MaxWidth = 380
+            TabOrder = 0
+          end
+        end
       end
     end
   end

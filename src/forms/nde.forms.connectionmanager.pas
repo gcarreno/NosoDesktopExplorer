@@ -31,13 +31,20 @@ type
     btnConnectionsNew: TButton;
     btnConnectionsDelete: TButton;
     edtConnectionName: TEdit;
+    edtConnectionFolder: TEdit;
+    gbFolder: TGroupBox;
+    gbJSONRPC: TGroupBox;
+    gbWebAPI: TGroupBox;
+    lblConnectionFolder: TLabel;
     lblConnectionName: TLabel;
     lbConnections: TListBox;
     panConnectionsButtons: TPanel;
+    panCOnnectionDetails: TPanel;
     psConnectionsDetails: TPairSplitter;
     pssConnections: TPairSplitterSide;
     pssDetails: TPairSplitterSide;
     panFormButtons: TPanel;
+    rgConnectionType: TRadioGroup;
 
     procedure alConnectionsUpdate(AAction: TBasicAction; var Handled: Boolean);
 
@@ -46,6 +53,8 @@ type
     procedure actConnectionsConnectExecute(Sender: TObject);
 
     procedure lbConnectionsSelectionChange(Sender: TObject; User: boolean);
+
+    procedure rgConnectionTypeSelectionChanged(Sender: TObject);
 
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -94,14 +103,15 @@ procedure TfrmConnectionManager.alConnectionsUpdate(
   var Handled: Boolean
 );
 begin
+  panCOnnectionDetails.Visible:= lbConnections.ItemIndex > -1;
   if AAction = actConnectionsDelete then
   begin
-    actConnectionsDelete.Enabled:= lbConnections.ItemIndex <> -1;
+    actConnectionsDelete.Enabled:= lbConnections.ItemIndex > -1;
     Handled:= True;
   end;
   if AAction = actConnectionsConnect then
   begin
-    actConnectionsConnect.Enabled:= lbConnections.ItemIndex <> -1;
+    actConnectionsConnect.Enabled:= lbConnections.ItemIndex > -1;
     Handled:= True;
   end;
 end;
@@ -132,7 +142,7 @@ end;
 
 procedure TfrmConnectionManager.actConnectionsConnectExecute(Sender: TObject);
 begin
-  //
+  { #todo 100 -ogcarreno : Implement the connection code on the Connection manager }
 end;
 
 procedure TfrmConnectionManager.lbConnectionsSelectionChange(
@@ -143,6 +153,41 @@ begin
   if lbConnections.ItemIndex > -1 then
   begin
     edtConnectionName.Text:= FConnections[lbConnections.ItemIndex].Name;
+    rgConnectionType.ItemIndex:=
+      Ord(FConnections[lbConnections.ItemIndex].ConnectionType)-1;
+    if FConnections[lbConnections.ItemIndex].ConnectionType = ctFolder then
+    begin
+      edtConnectionFolder.Text:= FConnections[lbConnections.ItemIndex].Folder;
+    end;
+  end;
+end;
+
+procedure TfrmConnectionManager.rgConnectionTypeSelectionChanged(
+  Sender: TObject
+);
+begin
+  if rgConnectionType.ItemIndex > -1 then
+  begin
+    case rgConnectionType.ItemIndex of
+      0:begin
+        gbFolder.Visible:= True;
+        gbFolder.BringToFront;
+        gbJSONRPC.Visible:= False;
+        gbWebAPI.Visible:= False;
+      end;
+      1:begin
+        gbJSONRPC.Visible:= True;
+        gbJSONRPC.BringToFront;
+        gbFolder.Visible:= False;
+        gbWebAPI.Visible:= False;
+      end;
+      2:begin
+        gbWebAPI.Visible:= True;
+        gbWebAPI.BringToFront;
+        gbFolder.Visible:= False;
+        gbJSONRPC.Visible:= False;
+      end;
+    end;
   end;
 end;
 

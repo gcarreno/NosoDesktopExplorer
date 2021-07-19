@@ -163,18 +163,20 @@ begin
   if FConnections[0].ConnectionType = ctFolder then
   begin
     tsConnection.Caption:= Format('%s (Folder)', [FConnections[0].Name]);
+    frameConnection:= TfrmFolderConnection.Create(tsConnection);
+    frameConnection.Parent:= tsConnection;
+    TfrmFolderConnection(frameConnection).Init;
   end;
+
   if FConnections[0].ConnectionType = ctJSONRPC then
   begin
     tsConnection.Caption:= Format('%s (JSON-RPC)', [FConnections[0].Name]);
   end;
+
   if FConnections[0].ConnectionType = ctWebAPI then
   begin
     tsConnection.Caption:= Format('%s (Web API)', [FConnections[0].Name]);
   end;
-  frameConnection:= TfrmFolderConnection.Create(tsConnection);
-  frameConnection.Parent:= tsConnection;
-  TfrmFolderConnection(frameConnection).Init;
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
