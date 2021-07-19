@@ -4,12 +4,22 @@ object frmMain: TfrmMain
   Top = 250
   Width = 970
   Caption = 'frmMain'
+  ClientHeight = 506
+  ClientWidth = 970
   Menu = mmMain
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   SessionProperties = 'Top;Left;Width;Height;WindowState'
+  object pcConnections: TPageControl
+    Left = 0
+    Height = 506
+    Top = 0
+    Width = 970
+    Align = alClient
+    TabOrder = 0
+  end
   object mmMain: TMainMenu
     Left = 888
     Top = 288
@@ -17,6 +27,9 @@ object frmMain: TfrmMain
       Caption = '&File'
       object MenuItem1: TMenuItem
         Action = actFileConnectionManager
+      end
+      object mnuConnectionsConnect: TMenuItem
+        Action = actConnectionsConnect
       end
       object mnuFileSep1: TMenuItem
         Caption = '-'
@@ -34,6 +47,11 @@ object frmMain: TfrmMain
       Caption = '&Connection Manager'
       OnExecute = actFileConnectionManagerExecute
       ShortCut = 49219
+    end
+    object actConnectionsConnect: TAction
+      Category = 'File'
+      Caption = 'C&onnect'
+      OnExecute = actConnectionsConnectExecute
     end
     object actFileExit: TFileExit
       Category = 'File'

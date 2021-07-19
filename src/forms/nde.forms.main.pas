@@ -14,7 +14,7 @@ uses
 , Menus
 , ActnList
 , JSONPropStorage
-, StdActns
+, StdActns, ComCtrls
 , NDE.Forms.ConnectionManager
 , NDE.Data.Connections
 , NDE.Data.Connection
@@ -24,14 +24,18 @@ type
 { TfrmMain }
   TfrmMain = class(TForm)
     actFileConnectionManager: TAction;
+    actConnectionsConnect: TAction;
     alMain: TActionList;
     actFileExit: TFileExit;
     jsonpsMain: TJSONPropStorage;
     MenuItem1: TMenuItem;
+    mnuConnectionsConnect: TMenuItem;
     mnuFileSep1: TMenuItem;
     mnuFile: TMenuItem;
     mnuFileExit: TMenuItem;
     mmMain: TMainMenu;
+    pcConnections: TPageControl;
+    procedure actConnectionsConnectExecute(Sender: TObject);
     procedure actFileConnectionManagerExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -65,6 +69,7 @@ implementation
 
 uses
   LCLType
+, NDE.Frames.FolderConnection
 ;
 
 {$R *.lfm}
@@ -147,6 +152,29 @@ begin
     Application.ProcessMessages;
     actFileConnectionManager.Enabled:= True;
   end;
+end;
+
+procedure TfrmMain.actConnectionsConnectExecute(Sender: TObject);
+var
+  tsConnection: TTabSheet;
+  frameConnection: TFrame;
+begin
+  tsConnection:= pcConnections.AddTabSheet;
+  if FConnections[0].ConnectionType = ctFolder then
+  begin
+    tsConnection.Caption:= Format('%s (Folder)', [FConnections[0].Name]);
+  end;
+  if FConnections[0].ConnectionType = ctJSONRPC then
+  begin
+    tsConnection.Caption:= Format('%s (JSON-RPC)', [FConnections[0].Name]);
+  end;
+  if FConnections[0].ConnectionType = ctWebAPI then
+  begin
+    tsConnection.Caption:= Format('%s (Web API)', [FConnections[0].Name]);
+  end;
+  frameConnection:= TfrmFolderConnection.Create(tsConnection);
+  frameConnection.Parent:= tsConnection;
+  TfrmFolderConnection(frameConnection).Init;
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);

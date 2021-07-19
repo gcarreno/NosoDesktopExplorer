@@ -28,17 +28,17 @@ msgstr ""
 msgid "&Cancel"
 msgstr ""
 
-#: tfrmconnectionmanager.btnconnect.caption
-msgctxt "tfrmconnectionmanager.btnconnect.caption"
-msgid "C&onnect"
-msgstr ""
-
 #: tfrmconnectionmanager.btnok.caption
 msgid "&Ok"
 msgstr ""
 
 #: tfrmconnectionmanager.lblconnectionname.caption
 msgid "Name"
+msgstr ""
+
+#: tfrmmain.actconnectionsconnect.caption
+msgctxt "tfrmmain.actconnectionsconnect.caption"
+msgid "C&onnect"
 msgstr ""
 
 #: tfrmmain.actfileconnectionmanager.caption

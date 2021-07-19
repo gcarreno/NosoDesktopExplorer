@@ -8,13 +8,14 @@ uses
   Classes
 , SysUtils
 , Forms
-, Controls
+, Controls, ExtCtrls
 , NDE.Data.Connection
 ;
 
 type
 { TfrmFolderConnection }
   TfrmFolderConnection = class(TFrame)
+    imgNoso: TImage;
   private
     FConnection: TConnection;
   public

@@ -28,13 +28,14 @@ object frmConnectionManager: TfrmConnectionManager
       Height = 33
       Top = 2
       Width = 80
+      Action = actConnectionsConnect
       Align = alRight
       AutoSize = True
       BorderSpacing.Top = 2
       BorderSpacing.Right = 4
       BorderSpacing.Bottom = 4
-      Caption = 'C&onnect'
       Constraints.MinWidth = 80
+      ModalResult = 6
       TabOrder = 0
     end
     object btnOk: TButton
