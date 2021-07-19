@@ -9,6 +9,11 @@ msgstr ""
 msgid "Noso Desktop Explorer"
 msgstr ""
 
+#: nde.frames.folderconnection.rsblockheightcaption
+#, object-pascal-format
+msgid "Block Height: %d (0..%d)"
+msgstr ""
+
 #: nde.frames.folderconnection.rsconnectioncaption
 #, object-pascal-format
 msgid "Connection: %s"
@@ -66,6 +71,10 @@ msgstr ""
 
 #: tfrmconnectionmanager.rgconnectiontype.caption
 msgid "Connection Type"
+msgstr ""
+
+#: tfrmfolderconnection.lblblockheight.caption
+msgid "Block Height: (NONE)"
 msgstr ""
 
 #: tfrmfolderconnection.lblconnectionname.caption

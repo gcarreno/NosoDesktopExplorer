@@ -1,4 +1,5 @@
 {"version":1,"strings":[
 {"hash":83493737,"name":"tfrmfolderconnection.lblfolderpath.caption","sourcebytes":[70,111,108,100,101,114,58,32,40,78,79,78,69,41],"value":"Folder: (NONE)"},
-{"hash":215561993,"name":"tfrmfolderconnection.lblconnectionname.caption","sourcebytes":[67,111,110,110,101,99,116,105,111,110,58,32,40,78,79,78,69,41],"value":"Connection: (NONE)"}
+{"hash":215561993,"name":"tfrmfolderconnection.lblconnectionname.caption","sourcebytes":[67,111,110,110,101,99,116,105,111,110,58,32,40,78,79,78,69,41],"value":"Connection: (NONE)"},
+{"hash":175580617,"name":"tfrmfolderconnection.lblblockheight.caption","sourcebytes":[66,108,111,99,107,32,72,101,105,103,104,116,58,32,40,78,79,78,69,41],"value":"Block Height: (NONE)"}
 ]}

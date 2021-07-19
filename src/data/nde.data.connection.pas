@@ -7,6 +7,7 @@ interface
 uses
   Classes
 , SysUtils
+, Forms
 , fpjson
 , jsonparser
 ;
@@ -44,6 +45,9 @@ type
     FAddress: String;
     FBasePath: String;
 
+    FFrame: TFrame;
+    FConnected: Boolean;
+
     FCompressedJSON: Boolean;
 
     procedure SetConnectionType(AValue: TConnectionType);
@@ -65,6 +69,8 @@ type
     constructor Create(const AJSONData: TJSONData); overload;
     constructor Create(const AJSONObject: TJSONObject); overload;
     constructor Create(const AStream: TStream); overload;
+
+    destructor Destroy; override;
 
     function FormatJSON(
       AOptions : TFormatOptions = DefaultFormat;
@@ -92,6 +98,13 @@ type
     property BasePath: String
       read FBasePath
       write FBasePath;
+
+    property Frame: TFrame
+      read FFrame
+      write FFrame;
+    property Connected: Boolean
+      read FConnected
+      write FConnected;
 
     property AsJSON: TJSONStringType
       read getAsJSON;
@@ -221,6 +234,14 @@ begin
   Result:= TStringStream.Create(getAsJSON, TEncoding.UTF8);
 end;
 
+function TConnection.FormatJSON(
+  AOptions: TFormatOptions;
+  AIndentsize: Integer
+): TJSONStringType;
+begin
+  Result:= getAsJSONObject.FormatJSON(AOptions, AIndentsize);
+end;
+
 constructor TConnection.Create;
 begin
   FConnectionType:= ctUnknown;
@@ -230,6 +251,10 @@ begin
   FPort:= -1;
   FAddress:= EmptyStr;
   FBasePath:= EmptyStr;
+
+  FFrame:= nil;
+  FConnected:= False;
+
   FCompressedJSON:= True;
 end;
 
@@ -257,12 +282,10 @@ begin
   setFromStream(AStream);
 end;
 
-function TConnection.FormatJSON(
-  AOptions: TFormatOptions;
-  AIndentsize: Integer
-): TJSONStringType;
+destructor TConnection.Destroy;
 begin
-  Result:= getAsJSONObject.FormatJSON(AOptions, AIndentsize);
+  FFrame:= nil;
+  inherited Destroy;
 end;
 
 end.

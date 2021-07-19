@@ -93,13 +93,30 @@ begin
   connection:= TConnection.Create;
   connection.Name:= 'GCarreno Main';
   connection.ConnectionType:= ctFolder;
-  connection.Folder:= '/home/gcarreno/Applications/Noso/Wallet/NOSODATA';
+  {$IFDEF Linux}
+  connection.Folder:= '/home/gcarreno/Applications/Noso/Wallet';
+  {$ENDIF}
+  {$IFDEF Windows}
+  connection.Folder:= 'D:\Applications\Noso\Wallet';
+  {$ENDIF}
   FConnections.Add(connection);
   {### REMOVE ###}
 end;
 
 procedure TfrmMain.Finalize;
+var
+  connection: TConnection = nil;
 begin
+  for connection in FConnections do
+  begin
+    if connection.Connected then
+    begin
+      if connection.ConnectionType = ctFolder then
+      begin
+        TfrmFolderConnection(connection.Frame).Finalize;
+      end;
+    end;
+  end;
   FConnections.Free;
 end;
 
@@ -163,10 +180,15 @@ begin
   if FConnections[0].ConnectionType = ctFolder then
   begin
     tsConnection.Caption:= Format('%s (Folder)', [FConnections[0].Name]);
+
     frameConnection:= TfrmFolderConnection.Create(tsConnection);
     frameConnection.Parent:= tsConnection;
+
     TfrmFolderConnection(frameConnection).Connection:= FConnections[0];
-    TfrmFolderConnection(frameConnection).Init;
+    TfrmFolderConnection(frameConnection).Initialize;
+
+    FConnections[0].Frame:= frameConnection;
+    FConnections[0].Connected:= True;
   end;
 
   if FConnections[0].ConnectionType = ctJSONRPC then

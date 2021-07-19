@@ -335,6 +335,16 @@ object frmFolderConnection: TfrmFolderConnection
         BorderSpacing.Top = 4
         Caption = 'Connection: (NONE)'
       end
+      object lblBlockHeight: TLabel
+        Left = 4
+        Height = 17
+        Top = 46
+        Width = 818
+        Align = alTop
+        BorderSpacing.Left = 4
+        BorderSpacing.Top = 4
+        Caption = 'Block Height: (NONE)'
+      end
     end
   end
 end
