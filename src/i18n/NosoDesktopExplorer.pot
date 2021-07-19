@@ -9,6 +9,16 @@ msgstr ""
 msgid "Noso Desktop Explorer"
 msgstr ""
 
+#: nde.frames.folderconnection.rsconnectioncaption
+#, object-pascal-format
+msgid "Connection: %s"
+msgstr ""
+
+#: nde.frames.folderconnection.rsfoldercaption
+#, object-pascal-format
+msgid "Folder: %s"
+msgstr ""
+
 #: tfrmconnectionmanager.actconnectionsconnect.caption
 msgctxt "tfrmconnectionmanager.actconnectionsconnect.caption"
 msgid "C&onnect"
@@ -56,6 +66,14 @@ msgstr ""
 
 #: tfrmconnectionmanager.rgconnectiontype.caption
 msgid "Connection Type"
+msgstr ""
+
+#: tfrmfolderconnection.lblconnectionname.caption
+msgid "Connection: (NONE)"
+msgstr ""
+
+#: tfrmfolderconnection.lblfolderpath.caption
+msgid "Folder: (NONE)"
 msgstr ""
 
 #: tfrmmain.actconnectionsconnect.caption

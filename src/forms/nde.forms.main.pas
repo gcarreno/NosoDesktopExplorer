@@ -165,6 +165,7 @@ begin
     tsConnection.Caption:= Format('%s (Folder)', [FConnections[0].Name]);
     frameConnection:= TfrmFolderConnection.Create(tsConnection);
     frameConnection.Parent:= tsConnection;
+    TfrmFolderConnection(frameConnection).Connection:= FConnections[0];
     TfrmFolderConnection(frameConnection).Init;
   end;
 
