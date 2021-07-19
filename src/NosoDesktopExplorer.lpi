@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="NosoDesktopExplorer"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
@@ -103,7 +105,6 @@
     </PublishOptions>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0"/>
     </RunParams>
     <RequiredPackages Count="2">
       <Item1>
@@ -113,7 +114,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="NosoDesktopExplorer.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -134,6 +135,13 @@
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="NDE.Frames.FolderConnection"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="forms/nde.forms.connectionmanager.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmConnectionManager"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="NDE.Forms.ConnectionManager"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -10,12 +10,17 @@ object frmMain: TfrmMain
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   SessionProperties = 'Top;Left;Width;Height;WindowState'
-  LCLVersion = '2.3.0.0'
   object mmMain: TMainMenu
     Left = 888
     Top = 288
     object mnuFile: TMenuItem
       Caption = '&File'
+      object MenuItem1: TMenuItem
+        Action = actFileConnectionManager
+      end
+      object mnuFileSep1: TMenuItem
+        Caption = '-'
+      end
       object mnuFileExit: TMenuItem
         Action = actFileExit
       end
@@ -24,6 +29,11 @@ object frmMain: TfrmMain
   object alMain: TActionList
     Left = 888
     Top = 352
+    object actFileConnectionManager: TAction
+      Category = 'File'
+      Caption = '&Connection Manager'
+      OnExecute = actFileConnectionManagerExecute
+    end
     object actFileExit: TFileExit
       Category = 'File'
       Caption = 'E&xit'

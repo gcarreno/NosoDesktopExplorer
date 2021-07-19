@@ -10,8 +10,8 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, NDE.Forms.Main, NDE.Frames.FolderConnection
-  { you can add units after this };
+  Forms,
+  NDE.Forms.Main;
 
 {$R *.res}
 

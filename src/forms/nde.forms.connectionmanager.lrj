@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":224743412,"name":"tfrmconnectionmanager.btnconnect.caption","sourcebytes":[67,38,111,110,110,101,99,116],"value":"C&onnect"},
+{"hash":11099,"name":"tfrmconnectionmanager.btnok.caption","sourcebytes":[38,79,107],"value":"&Ok"},
+{"hash":177752476,"name":"tfrmconnectionmanager.btncancel.caption","sourcebytes":[38,67,97,110,99,101,108],"value":"&Cancel"}
+]}

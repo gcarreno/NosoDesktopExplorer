@@ -1,8 +1,28 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: nde.forms.connectionmanager.rsformconnectionmanagercaption
+msgid "Connection Manager"
+msgstr ""
+
 #: nde.forms.main.rsformcaption
 msgid "Noso Desktop Explorer"
+msgstr ""
+
+#: tfrmconnectionmanager.btncancel.caption
+msgid "&Cancel"
+msgstr ""
+
+#: tfrmconnectionmanager.btnconnect.caption
+msgid "C&onnect"
+msgstr ""
+
+#: tfrmconnectionmanager.btnok.caption
+msgid "&Ok"
+msgstr ""
+
+#: tfrmmain.actfileconnectionmanager.caption
+msgid "&Connection Manager"
 msgstr ""
 
 #: tfrmmain.actfileexit.caption

@@ -1,0 +1,65 @@
+object frmConnectionManager: TfrmConnectionManager
+  Left = 385
+  Height = 490
+  Top = 250
+  Width = 975
+  ClientHeight = 490
+  ClientWidth = 975
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poOwnerFormCenter
+  object panButtons: TPanel
+    Left = 0
+    Height = 37
+    Top = 453
+    Width = 975
+    Align = alBottom
+    AutoSize = True
+    BevelOuter = bvNone
+    ClientHeight = 37
+    ClientWidth = 975
+    TabOrder = 0
+    object btnConnect: TButton
+      Left = 729
+      Height = 33
+      Top = 2
+      Width = 80
+      Align = alRight
+      AutoSize = True
+      BorderSpacing.Around = 2
+      Caption = 'C&onnect'
+      Constraints.MinWidth = 80
+      TabOrder = 0
+    end
+    object btnOk: TButton
+      Left = 811
+      Height = 33
+      Top = 2
+      Width = 80
+      Align = alRight
+      AutoSize = True
+      BorderSpacing.Around = 2
+      Caption = '&Ok'
+      Constraints.MinWidth = 80
+      Default = True
+      ModalResult = 1
+      TabOrder = 1
+    end
+    object btnCancel: TButton
+      Left = 893
+      Height = 33
+      Top = 2
+      Width = 80
+      Align = alRight
+      AutoSize = True
+      BorderSpacing.Around = 2
+      Cancel = True
+      Caption = '&Cancel'
+      Constraints.MinWidth = 80
+      ModalResult = 2
+      TabOrder = 2
+    end
+  end
+end
