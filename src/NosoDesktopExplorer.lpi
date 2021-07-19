@@ -139,6 +139,7 @@
         <Filename Value="forms/nde.forms.connectionmanager.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmConnectionManager"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="NDE.Forms.ConnectionManager"/>
       </Unit3>

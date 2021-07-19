@@ -9,16 +9,36 @@ msgstr ""
 msgid "Noso Desktop Explorer"
 msgstr ""
 
+#: tfrmconnectionmanager.actconnectionsconnect.caption
+msgctxt "tfrmconnectionmanager.actconnectionsconnect.caption"
+msgid "C&onnect"
+msgstr ""
+
+#: tfrmconnectionmanager.actconnectionsdelete.caption
+msgctxt "tfrmconnectionmanager.actconnectionsdelete.caption"
+msgid "Delete Connection"
+msgstr ""
+
+#: tfrmconnectionmanager.actconnectionsnew.caption
+msgctxt "tfrmconnectionmanager.actconnectionsnew.caption"
+msgid "New Connection"
+msgstr ""
+
 #: tfrmconnectionmanager.btncancel.caption
 msgid "&Cancel"
 msgstr ""
 
 #: tfrmconnectionmanager.btnconnect.caption
+msgctxt "tfrmconnectionmanager.btnconnect.caption"
 msgid "C&onnect"
 msgstr ""
 
 #: tfrmconnectionmanager.btnok.caption
 msgid "&Ok"
+msgstr ""
+
+#: tfrmconnectionmanager.lblconnectionname.caption
+msgid "Name"
 msgstr ""
 
 #: tfrmmain.actfileconnectionmanager.caption

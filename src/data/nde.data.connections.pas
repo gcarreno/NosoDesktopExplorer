@@ -67,7 +67,7 @@ type
       read GetCount;
     property Items[Index: Integer]: TConnection
       read GetConnection
-      write SetConnection;
+      write SetConnection; default;
 
     property AsJSON: TJSONStringType
       read getAsJSON;

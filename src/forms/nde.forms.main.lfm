@@ -33,6 +33,7 @@ object frmMain: TfrmMain
       Category = 'File'
       Caption = '&Connection Manager'
       OnExecute = actFileConnectionManagerExecute
+      ShortCut = 49219
     end
     object actFileExit: TFileExit
       Category = 'File'

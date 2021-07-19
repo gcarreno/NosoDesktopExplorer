@@ -1,46 +1,52 @@
 object frmConnectionManager: TfrmConnectionManager
   Left = 385
-  Height = 490
+  Height = 350
   Top = 250
-  Width = 975
-  ClientHeight = 490
-  ClientWidth = 975
+  Width = 610
+  ClientHeight = 350
+  ClientWidth = 610
+  Constraints.MinHeight = 350
+  Constraints.MinWidth = 610
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poOwnerFormCenter
-  object panButtons: TPanel
+  object panFormButtons: TPanel
     Left = 0
-    Height = 37
-    Top = 453
-    Width = 975
+    Height = 39
+    Top = 311
+    Width = 610
     Align = alBottom
     AutoSize = True
     BevelOuter = bvNone
-    ClientHeight = 37
-    ClientWidth = 975
+    ClientHeight = 39
+    ClientWidth = 610
     TabOrder = 0
     object btnConnect: TButton
-      Left = 729
+      Left = 354
       Height = 33
       Top = 2
       Width = 80
       Align = alRight
       AutoSize = True
-      BorderSpacing.Around = 2
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 4
       Caption = 'C&onnect'
       Constraints.MinWidth = 80
       TabOrder = 0
     end
     object btnOk: TButton
-      Left = 811
+      Left = 438
       Height = 33
       Top = 2
       Width = 80
       Align = alRight
       AutoSize = True
-      BorderSpacing.Around = 2
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 4
       Caption = '&Ok'
       Constraints.MinWidth = 80
       Default = True
@@ -48,18 +54,138 @@ object frmConnectionManager: TfrmConnectionManager
       TabOrder = 1
     end
     object btnCancel: TButton
-      Left = 893
+      Left = 522
       Height = 33
       Top = 2
       Width = 80
       Align = alRight
       AutoSize = True
-      BorderSpacing.Around = 2
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 8
+      BorderSpacing.Bottom = 4
       Cancel = True
       Caption = '&Cancel'
       Constraints.MinWidth = 80
       ModalResult = 2
       TabOrder = 2
+    end
+  end
+  object psConnectionsDetails: TPairSplitter
+    Left = 0
+    Height = 311
+    Top = 0
+    Width = 610
+    Align = alClient
+    Position = 200
+    object pssConnections: TPairSplitterSide
+      Cursor = crArrow
+      Left = 0
+      Height = 311
+      Top = 0
+      Width = 200
+      ClientWidth = 200
+      ClientHeight = 311
+      Constraints.MinWidth = 200
+      object lbConnections: TListBox
+        Left = 0
+        Height = 231
+        Top = 0
+        Width = 200
+        Align = alClient
+        ItemHeight = 0
+        OnSelectionChange = lbConnectionsSelectionChange
+        TabOrder = 0
+        TopIndex = -1
+      end
+      object panConnectionsButtons: TPanel
+        Left = 0
+        Height = 80
+        Top = 231
+        Width = 200
+        Align = alBottom
+        AutoSize = True
+        BevelOuter = bvNone
+        ClientHeight = 80
+        ClientWidth = 200
+        Constraints.MinHeight = 80
+        TabOrder = 1
+        object btnConnectionsNew: TButton
+          Left = 8
+          Height = 33
+          Top = 4
+          Width = 140
+          Action = actConnectionsNew
+          Align = alTop
+          AutoSize = True
+          BorderSpacing.Left = 8
+          BorderSpacing.Top = 4
+          Constraints.MaxWidth = 140
+          TabOrder = 0
+        end
+        object btnConnectionsDelete: TButton
+          Left = 8
+          Height = 33
+          Top = 41
+          Width = 140
+          Action = actConnectionsDelete
+          Align = alTop
+          AutoSize = True
+          BorderSpacing.Left = 8
+          BorderSpacing.Top = 4
+          Constraints.MaxWidth = 140
+          TabOrder = 1
+        end
+      end
+    end
+    object pssDetails: TPairSplitterSide
+      Cursor = crArrow
+      Left = 205
+      Height = 311
+      Top = 0
+      Width = 405
+      ClientWidth = 405
+      ClientHeight = 311
+      Constraints.MinWidth = 400
+      object lblConnectionName: TLabel
+        Left = 4
+        Height = 17
+        Top = 4
+        Width = 401
+        Align = alTop
+        BorderSpacing.Left = 4
+        BorderSpacing.Top = 4
+        Caption = 'Name'
+      end
+      object edtConnectionName: TEdit
+        Left = 4
+        Height = 33
+        Top = 25
+        Width = 401
+        Align = alTop
+        BorderSpacing.Left = 4
+        BorderSpacing.Top = 4
+        TabOrder = 0
+      end
+    end
+  end
+  object alConnections: TActionList
+    OnUpdate = alConnectionsUpdate
+    Left = 152
+    Top = 288
+    object actConnectionsNew: TAction
+      Category = 'Connections'
+      Caption = 'New Connection'
+      OnExecute = actConnectionsNewExecute
+    end
+    object actConnectionsDelete: TAction
+      Category = 'Connections'
+      Caption = 'Delete Connection'
+      OnExecute = actConnectionsDeleteExecute
+    end
+    object actConnectionsConnect: TAction
+      Category = 'Connections'
+      Caption = 'C&onnect'
+      OnExecute = actConnectionsConnectExecute
     end
   end
 end

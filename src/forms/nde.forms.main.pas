@@ -86,6 +86,7 @@ begin
   FFormConnectionManager:= nil;
   {### REMOVE ###}
   connection:= TConnection.Create;
+  connection.Name:= 'GCarreno Main';
   connection.ConnectionType:= ctFolder;
   connection.Folder:= '/home/gcarreno/Applications/Noso/Wallet/NOSODATA';
   FConnections.Add(connection);
@@ -140,6 +141,7 @@ begin
     FFormConnectionManager:= TfrmConnectionManager.Create(Self);
     FFormConnectionManager.Connections:= FConnections;
     FFormConnectionManager.OnConnectionsChange:= @ConnectionsChanged;
+    FFormConnectionManager.PopulateConnections;
     mResult:= FFormConnectionManager.ShowModal;
   finally
     Application.ProcessMessages;
