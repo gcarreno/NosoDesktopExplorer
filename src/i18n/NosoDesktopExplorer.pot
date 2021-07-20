@@ -14,6 +14,11 @@ msgstr ""
 msgid "Block Height: %d (0..%d)"
 msgstr ""
 
+#: nde.frames.folderconnection.rsblocknumber
+#, object-pascal-format
+msgid "Number: %d"
+msgstr ""
+
 #: nde.frames.folderconnection.rsconnectioncaption
 #, object-pascal-format
 msgid "Connection: %s"
@@ -73,8 +78,40 @@ msgstr ""
 msgid "Connection Type"
 msgstr ""
 
+#: tfrmfolderconnection.btnfirst.caption
+msgid "&First"
+msgstr ""
+
+#: tfrmfolderconnection.btnlast.caption
+msgid "&Last"
+msgstr ""
+
+#: tfrmfolderconnection.lblblock.caption
+msgid "&Block"
+msgstr ""
+
+#: tfrmfolderconnection.lblblockhash.caption
+msgid "Block HASH"
+msgstr ""
+
 #: tfrmfolderconnection.lblblockheight.caption
 msgid "Block Height: (NONE)"
+msgstr ""
+
+#: tfrmfolderconnection.lblblocknumber.caption
+msgid "Number: NONE"
+msgstr ""
+
+#: tfrmfolderconnection.lblblocktimeend.caption
+msgid "Time End"
+msgstr ""
+
+#: tfrmfolderconnection.lblblocktimestart.caption
+msgid "Time Start"
+msgstr ""
+
+#: tfrmfolderconnection.lblblocktimetotal.caption
+msgid "Time Total"
 msgstr ""
 
 #: tfrmfolderconnection.lblconnectionname.caption
@@ -83,6 +120,10 @@ msgstr ""
 
 #: tfrmfolderconnection.lblfolderpath.caption
 msgid "Folder: (NONE)"
+msgstr ""
+
+#: tfrmfolderconnection.tsblocks.caption
+msgid "Blocks"
 msgstr ""
 
 #: tfrmmain.actconnectionsconnect.caption

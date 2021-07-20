@@ -1,5 +1,14 @@
 {"version":1,"strings":[
 {"hash":83493737,"name":"tfrmfolderconnection.lblfolderpath.caption","sourcebytes":[70,111,108,100,101,114,58,32,40,78,79,78,69,41],"value":"Folder: (NONE)"},
 {"hash":215561993,"name":"tfrmfolderconnection.lblconnectionname.caption","sourcebytes":[67,111,110,110,101,99,116,105,111,110,58,32,40,78,79,78,69,41],"value":"Connection: (NONE)"},
-{"hash":175580617,"name":"tfrmfolderconnection.lblblockheight.caption","sourcebytes":[66,108,111,99,107,32,72,101,105,103,104,116,58,32,40,78,79,78,69,41],"value":"Block Height: (NONE)"}
+{"hash":175580617,"name":"tfrmfolderconnection.lblblockheight.caption","sourcebytes":[66,108,111,99,107,32,72,101,105,103,104,116,58,32,40,78,79,78,69,41],"value":"Block Height: (NONE)"},
+{"hash":76765731,"name":"tfrmfolderconnection.tsblocks.caption","sourcebytes":[66,108,111,99,107,115],"value":"Blocks"},
+{"hash":44643739,"name":"tfrmfolderconnection.lblblock.caption","sourcebytes":[38,66,108,111,99,107],"value":"&Block"},
+{"hash":44894628,"name":"tfrmfolderconnection.btnfirst.caption","sourcebytes":[38,70,105,114,115,116],"value":"&First"},
+{"hash":2828452,"name":"tfrmfolderconnection.btnlast.caption","sourcebytes":[38,76,97,115,116],"value":"&Last"},
+{"hash":10038501,"name":"tfrmfolderconnection.lblblocknumber.caption","sourcebytes":[78,117,109,98,101,114,58,32,78,79,78,69],"value":"Number: NONE"},
+{"hash":164648232,"name":"tfrmfolderconnection.lblblockhash.caption","sourcebytes":[66,108,111,99,107,32,72,65,83,72],"value":"Block HASH"},
+{"hash":3624948,"name":"tfrmfolderconnection.lblblocktimeend.caption","sourcebytes":[84,105,109,101,32,69,110,100],"value":"Time End"},
+{"hash":123672740,"name":"tfrmfolderconnection.lblblocktimestart.caption","sourcebytes":[84,105,109,101,32,83,116,97,114,116],"value":"Time Start"},
+{"hash":123787852,"name":"tfrmfolderconnection.lblblocktimetotal.caption","sourcebytes":[84,105,109,101,32,84,111,116,97,108],"value":"Time Total"}
 ]}

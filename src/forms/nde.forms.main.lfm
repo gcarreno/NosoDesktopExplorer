@@ -6,13 +6,14 @@ object frmMain: TfrmMain
   Caption = 'frmMain'
   ClientHeight = 506
   ClientWidth = 970
+  Constraints.MinHeight = 500
+  Constraints.MinWidth = 900
   Menu = mmMain
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   SessionProperties = 'Top;Left;Width;Height;WindowState'
-  LCLVersion = '2.3.0.0'
   object pcConnections: TPageControl
     Left = 0
     Height = 506
