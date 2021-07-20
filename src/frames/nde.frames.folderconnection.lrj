@@ -10,5 +10,6 @@
 {"hash":164648232,"name":"tfrmfolderconnection.lblblockhash.caption","sourcebytes":[66,108,111,99,107,32,72,65,83,72],"value":"Block HASH"},
 {"hash":3624948,"name":"tfrmfolderconnection.lblblocktimeend.caption","sourcebytes":[84,105,109,101,32,69,110,100],"value":"Time End"},
 {"hash":123672740,"name":"tfrmfolderconnection.lblblocktimestart.caption","sourcebytes":[84,105,109,101,32,83,116,97,114,116],"value":"Time Start"},
-{"hash":123787852,"name":"tfrmfolderconnection.lblblocktimetotal.caption","sourcebytes":[84,105,109,101,32,84,111,116,97,108],"value":"Time Total"}
+{"hash":123787852,"name":"tfrmfolderconnection.lblblocktimetotal.caption","sourcebytes":[84,105,109,101,32,84,111,116,97,108],"value":"Time Total"},
+{"hash":121263104,"name":"tfrmfolderconnection.lblblocklast20.caption","sourcebytes":[84,105,109,101,32,76,97,115,116,32,50,48],"value":"Time Last 20"}
 ]}

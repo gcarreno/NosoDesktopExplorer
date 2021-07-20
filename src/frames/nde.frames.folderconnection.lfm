@@ -1,10 +1,10 @@
 object frmFolderConnection: TfrmFolderConnection
   Left = 0
-  Height = 480
+  Height = 682
   Top = 0
   Width = 930
   Align = alClient
-  ClientHeight = 480
+  ClientHeight = 682
   ClientWidth = 930
   TabOrder = 0
   DesignLeft = 385
@@ -349,7 +349,7 @@ object frmFolderConnection: TfrmFolderConnection
   end
   object pcFolderConnectionDetails: TPageControl
     Left = 0
-    Height = 372
+    Height = 574
     Top = 108
     Width = 930
     ActivePage = tsBlocks
@@ -358,7 +358,7 @@ object frmFolderConnection: TfrmFolderConnection
     TabOrder = 1
     object tsBlocks: TTabSheet
       Caption = 'Blocks'
-      ClientHeight = 341
+      ClientHeight = 543
       ClientWidth = 920
       object panBlockDetails: TPanel
         Left = 0
@@ -434,7 +434,7 @@ object frmFolderConnection: TfrmFolderConnection
       end
       object psBlockTransactions: TPairSplitter
         Left = 0
-        Height = 275
+        Height = 477
         Top = 66
         Width = 920
         Align = alClient
@@ -442,21 +442,21 @@ object frmFolderConnection: TfrmFolderConnection
         object pssBlock: TPairSplitterSide
           Cursor = crArrow
           Left = 0
-          Height = 275
+          Height = 477
           Top = 0
           Width = 400
           ClientWidth = 400
-          ClientHeight = 275
+          ClientHeight = 477
           Constraints.MinWidth = 400
           object sbBlock: TScrollBox
             Left = 0
-            Height = 275
+            Height = 477
             Top = 0
             Width = 400
             HorzScrollBar.Page = 107
-            VertScrollBar.Page = 253
+            VertScrollBar.Page = 311
             Align = alClient
-            ClientHeight = 273
+            ClientHeight = 475
             ClientWidth = 398
             TabOrder = 0
             object lblBlockNumber: TLabel
@@ -553,12 +553,33 @@ object frmFolderConnection: TfrmFolderConnection
               ReadOnly = True
               TabOrder = 3
             end
+            object lblBlockLast20: TLabel
+              Left = 4
+              Height = 17
+              Top = 257
+              Width = 394
+              Align = alTop
+              BorderSpacing.Left = 4
+              BorderSpacing.Top = 4
+              Caption = 'Time Last 20'
+            end
+            object edtBlockTimeLast20: TEdit
+              Left = 4
+              Height = 33
+              Top = 278
+              Width = 394
+              Align = alTop
+              BorderSpacing.Left = 4
+              BorderSpacing.Top = 4
+              ReadOnly = True
+              TabOrder = 4
+            end
           end
         end
         object pssTransactions: TPairSplitterSide
           Cursor = crArrow
           Left = 405
-          Height = 275
+          Height = 477
           Top = 0
           Width = 515
         end

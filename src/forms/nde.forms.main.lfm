@@ -27,11 +27,8 @@ object frmMain: TfrmMain
     Top = 288
     object mnuFile: TMenuItem
       Caption = '&File'
-      object MenuItem1: TMenuItem
+      object mnuFileCOnnectionManager: TMenuItem
         Action = actFileConnectionManager
-      end
-      object mnuConnectionsConnect: TMenuItem
-        Action = actConnectionsConnect
       end
       object mnuFileSep1: TMenuItem
         Caption = '-'
@@ -49,11 +46,6 @@ object frmMain: TfrmMain
       Caption = '&Connection Manager'
       OnExecute = actFileConnectionManagerExecute
       ShortCut = 49219
-    end
-    object actConnectionsConnect: TAction
-      Category = 'File'
-      Caption = 'C&onnect'
-      OnExecute = actConnectionsConnectExecute
     end
     object actFileExit: TFileExit
       Category = 'File'

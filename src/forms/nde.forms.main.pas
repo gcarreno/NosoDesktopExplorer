@@ -24,18 +24,15 @@ type
 { TfrmMain }
   TfrmMain = class(TForm)
     actFileConnectionManager: TAction;
-    actConnectionsConnect: TAction;
     alMain: TActionList;
     actFileExit: TFileExit;
     jsonpsMain: TJSONPropStorage;
-    MenuItem1: TMenuItem;
-    mnuConnectionsConnect: TMenuItem;
+    mnuFileCOnnectionManager: TMenuItem;
     mnuFileSep1: TMenuItem;
     mnuFile: TMenuItem;
     mnuFileExit: TMenuItem;
     mmMain: TMainMenu;
     pcConnections: TPageControl;
-    procedure actConnectionsConnectExecute(Sender: TObject);
     procedure actFileConnectionManagerExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -51,7 +48,11 @@ type
     procedure ActivatePropStorage;
     procedure DeActivatePropStorage;
 
-    procedure ConnectionsChanged(Sender: TObject);
+    procedure ConnectToFolder(const AConnectionIndex: Integer);
+    procedure ConnectToJSONRPC(const AConnectionIndex: Integer);
+    procedure ConnectToWebAPI(const AConnectionIndex: Integer);
+
+    procedure OnConnect(ConnectionIndex: Integer);
   public
   published
   end;
@@ -148,57 +149,81 @@ begin
   jsonpsMain.Active:= False;
 end;
 
-procedure TfrmMain.ConnectionsChanged(Sender: TObject);
+procedure TfrmMain.ConnectToFolder(const AConnectionIndex: Integer);
+var
+  tsConnection: TTabSheet;
+  frameConnection: TFrame;
 begin
-  //
+  if not FConnections[AConnectionIndex].Connected then
+  begin
+    tsConnection:= pcConnections.AddTabSheet;
+    tsConnection.Caption:= Format('%s (Folder)', [FConnections[AConnectionIndex].Name]);
+
+    frameConnection:= TfrmFolderConnection.Create(tsConnection);
+    frameConnection.Parent:= tsConnection;
+
+    TfrmFolderConnection(frameConnection).Connection:= FConnections[AConnectionIndex];
+    TfrmFolderConnection(frameConnection).Initialize;
+
+    FConnections[0].Frame:= frameConnection;
+    FConnections[0].Connected:= True;
+  end;
+end;
+
+procedure TfrmMain.ConnectToJSONRPC(const AConnectionIndex: Integer);
+var
+  tsConnection: TTabSheet;
+begin
+  if not FConnections[AConnectionIndex].Connected then
+  begin
+    tsConnection:= pcConnections.AddTabSheet;
+    tsConnection.Caption:= Format('%s (JSON-RPC)', [FConnections[AConnectionIndex].Name]);
+  end;
+end;
+
+procedure TfrmMain.ConnectToWebAPI(const AConnectionIndex: Integer);
+var
+  tsConnection: TTabSheet;
+begin
+  if not FConnections[AConnectionIndex].Connected then
+  begin
+    tsConnection:= pcConnections.AddTabSheet;
+    tsConnection.Caption:= Format('%s (Web API)', [FConnections[AConnectionIndex].Name]);
+  end;
+end;
+
+procedure TfrmMain.OnConnect(ConnectionIndex: Integer);
+begin
+  if FConnections[ConnectionIndex].ConnectionType = ctFolder then
+  begin
+    ConnectToFolder(ConnectionIndex);
+  end;
+  if FConnections[ConnectionIndex].ConnectionType = ctJSONRPC then
+  begin
+    ConnectToJSONRPC(ConnectionIndex);
+  end;
+  if FConnections[ConnectionIndex].ConnectionType = ctWebAPI then
+  begin
+    ConnectToWebAPI(ConnectionIndex);
+  end;
 end;
 
 procedure TfrmMain.actFileConnectionManagerExecute(Sender: TObject);
-var
-  mResult: Integer;
+//var
+//  mResult: Integer;
 begin
   actFileConnectionManager.Enabled:= False;
   Application.ProcessMessages;
   try
     FFormConnectionManager:= TfrmConnectionManager.Create(Self);
     FFormConnectionManager.Connections:= FConnections;
-    FFormConnectionManager.OnConnectionsChange:= @ConnectionsChanged;
+    FFormConnectionManager.OnConnectionsConnect:= @OnConnect;
     FFormConnectionManager.PopulateConnections;
-    mResult:= FFormConnectionManager.ShowModal;
+    //mResult:= FFormConnectionManager.ShowModal;
+    FFormConnectionManager.ShowModal;
   finally
     Application.ProcessMessages;
     actFileConnectionManager.Enabled:= True;
-  end;
-end;
-
-procedure TfrmMain.actConnectionsConnectExecute(Sender: TObject);
-var
-  tsConnection: TTabSheet;
-  frameConnection: TFrame;
-begin
-  tsConnection:= pcConnections.AddTabSheet;
-  if FConnections[0].ConnectionType = ctFolder then
-  begin
-    tsConnection.Caption:= Format('%s (Folder)', [FConnections[0].Name]);
-
-    frameConnection:= TfrmFolderConnection.Create(tsConnection);
-    frameConnection.Parent:= tsConnection;
-
-    TfrmFolderConnection(frameConnection).Connection:= FConnections[0];
-    TfrmFolderConnection(frameConnection).Initialize;
-
-    FConnections[0].Frame:= frameConnection;
-    FConnections[0].Connected:= True;
-  end;
-
-  if FConnections[0].ConnectionType = ctJSONRPC then
-  begin
-    tsConnection.Caption:= Format('%s (JSON-RPC)', [FConnections[0].Name]);
-  end;
-
-  if FConnections[0].ConnectionType = ctWebAPI then
-  begin
-    tsConnection.Caption:= Format('%s (Web API)', [FConnections[0].Name]);
   end;
 end;
 

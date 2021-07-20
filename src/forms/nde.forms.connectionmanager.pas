@@ -16,8 +16,8 @@ uses
 ;
 
 type
-{ TConnectionsChangedNotify }
-  TConnectionsChangedNotify = procedure(Sender: TObject) of object;
+{ TConnectionsConnectNotify }
+  TConnectionsConnectNotify = procedure(ConnectionIndex: Integer) of object;
 
 { TfrmConnectionManager }
   TfrmConnectionManager = class(TForm)
@@ -63,15 +63,15 @@ type
   private
     FConnections: TConnections;
 
-    FOnConnectionsChange: TConnectionsChangedNotify;
+    FOnConnectionsConnect: TConnectionsConnectNotify;
 
   public
     property Connections: TConnections
       read FConnections
       write FConnections;
-    property OnConnectionsChange: TConnectionsChangedNotify
-      read FOnConnectionsChange
-      write FOnConnectionsChange;
+    property OnConnectionsConnect: TConnectionsConnectNotify
+      read FOnConnectionsConnect
+      write FOnConnectionsConnect;
 
     procedure PopulateConnections;
   end;
@@ -143,6 +143,13 @@ end;
 procedure TfrmConnectionManager.actConnectionsConnectExecute(Sender: TObject);
 begin
   { #todo 100 -ogcarreno : Implement the connection code on the Connection manager }
+  if Assigned(FOnConnectionsConnect) then
+  begin
+    if lbConnections.ItemIndex > -1 then
+    begin
+      FOnConnectionsConnect(lbConnections.ItemIndex);
+    end;
+  end;
 end;
 
 procedure TfrmConnectionManager.lbConnectionsSelectionChange(
@@ -194,7 +201,7 @@ end;
 procedure TfrmConnectionManager.FormCreate(Sender: TObject);
 begin
   FConnections:= nil;
-  FOnConnectionsChange:= nil;
+  FOnConnectionsConnect:= nil;
   Caption:= rsFormConnectionManagerCaption;
 end;
 
@@ -216,7 +223,7 @@ end;
 
 procedure TfrmConnectionManager.FormDestroy(Sender: TObject);
 begin
-  FOnConnectionsChange:= nil;
+  FOnConnectionsConnect:= nil;
   FConnections:= nil;
 end;
 

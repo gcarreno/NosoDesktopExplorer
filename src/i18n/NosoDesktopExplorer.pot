@@ -98,6 +98,10 @@ msgstr ""
 msgid "Block Height: (NONE)"
 msgstr ""
 
+#: tfrmfolderconnection.lblblocklast20.caption
+msgid "Time Last 20"
+msgstr ""
+
 #: tfrmfolderconnection.lblblocknumber.caption
 msgid "Number: NONE"
 msgstr ""
@@ -124,11 +128,6 @@ msgstr ""
 
 #: tfrmfolderconnection.tsblocks.caption
 msgid "Blocks"
-msgstr ""
-
-#: tfrmmain.actconnectionsconnect.caption
-msgctxt "tfrmmain.actconnectionsconnect.caption"
-msgid "C&onnect"
 msgstr ""
 
 #: tfrmmain.actfileconnectionmanager.caption

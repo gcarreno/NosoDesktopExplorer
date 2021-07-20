@@ -28,6 +28,7 @@ type
     edtBlockHash: TEdit;
     edtBlockTimeStart: TEdit;
     edtBlockTimeTotal: TEdit;
+    edtBlockTimeLast20: TEdit;
     imgNoso: TImage;
     lblBlockTimeEnd: TLabel;
     lblBlockNumber: TLabel;
@@ -35,6 +36,7 @@ type
     lblBlock: TLabel;
     lblBlockHeight: TLabel;
     lblBlockTimeTotal: TLabel;
+    lblBlockLast20: TLabel;
     lblConnectionName: TLabel;
     lblFolderPath: TLabel;
     lblBlockTimeStart: TLabel;
@@ -114,6 +116,7 @@ begin
     edtBlockTimeEnd.Text:= DateTimeToStr(UnixToDateTime(FBlock.TimeEnd));
     edtBlockTimeStart.Text:= DateTimeToStr(UnixToDateTime(FBlock.TimeStart));
     edtBlockTimeTotal.Text:= FormatDateTime('hh:nn:ss', FBlock.TimeTotal / SecsPerDay);
+    edtBlockTimeLast20.Text:= FormatDateTime('hh:nn:ss', FBlock.TimeLast20 / SecsPerDay);
   end;
 end;
 
